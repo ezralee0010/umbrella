@@ -1,0 +1,37 @@
+require "http"
+require "json"
+
+pp "Where are you?"
+
+current_location = gets
+
+pp current_location
+
+gmaps_key = "AIzaSyDKz4Y3bvrTsWpPRNn9ab55OkmcwZxLOHI"
+
+gmaps_url = "https://maps.googleapis.com/maps/api/geocode/json?address=#{current_location}&key=#{gmaps_key}"
+
+raw_gmaps_url = HTTP.get(gmaps_url)
+
+parsed_gmaps = JSON.parse(raw_gmaps_url)
+
+main_results = parsed_gmaps.fetch("results")
+
+component = main_results.at(0)
+
+outer_location = component.fetch("geometry")
+
+inter_location = outer_location.fetch("location")
+
+latitude = inter_location.fetch("lat")
+
+longitude = inter_location.fetch("lng")
+
+pp "your lat is #{latitude} and long is #{longitude}"
+
+# Pirate
+
+pirate_key = "3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE"
+
+pirate_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{latitude},#{longitude}"
+
