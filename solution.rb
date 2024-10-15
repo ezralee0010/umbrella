@@ -35,3 +35,17 @@ pirate_key = "3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE"
 
 pirate_url = "https://api.pirateweather.net/forecast/#{pirate_key}/#{latitude},#{longitude}"
 
+
+weather_data = HTTP.get(pirate_url)
+
+parsed_pirate = JSON.parse(weather_data)
+
+outer_temp = parsed_pirate.fetch("currently")
+
+inner_temp = outer_temp.fetch("temperature")
+
+pp "Your temp is #{inner_temp}"
+
+current_weather = outer_temp.fetch("precipType")
+
+pp "Your weather is #{current_weather}"
