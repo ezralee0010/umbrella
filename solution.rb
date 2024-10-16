@@ -48,4 +48,4 @@ pp "Your temp is #{inner_temp}"
 
 current_weather = outer_temp.fetch("precipType")
 
-pp "Your weather is #{current_weather}"
+pp "Your current weather is #{current_weather}"
