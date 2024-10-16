@@ -1,6 +1,9 @@
 require "http"
 require "json"
 
+# https://maps.googleapis.com/maps/api/geocode/json?address=Chicago&key=AIzaSyDKz4Y3bvrTsWpPRNn9ab55OkmcwZxLOHI 
+# https://api.pirateweather.net/forecast/3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE/41.8781136,-87.6297982
+
 pp "Where are you?"
 
 current_location = gets
